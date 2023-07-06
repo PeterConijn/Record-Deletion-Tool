@@ -9,41 +9,32 @@ page 50000 "Record Deletion"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             repeater(General)
             {
                 field("Table ID"; Rec."Table ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Table ID field.';
                 }
                 field("Table Name"; Rec."Table Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Table Name field.';
                 }
                 field(NoOfRecords; RecordDeletionMgt.CalcRecordsInTable(Rec."Table ID"))
                 {
                     CaptionML = ENU = 'No. of Records';
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the value of the CalcRecordsInTable(Rec.Table ID) field.';
 
                 }
                 field("No. of Table Relation Errors"; Rec."No. of Table Relation Errors")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the value of the No. of Table Relation Errors field.';
                 }
                 field("Delete Records"; Rec."Delete Records")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the value of the Delete Records field.';
                 }
-                // field(Company; Company)
-                // {
-                //     ApplicationArea = All;
-                // }
             }
         }
     }
@@ -57,7 +48,6 @@ page 50000 "Record Deletion"
         {
             action(InsertUpdateTables)
             {
-                ApplicationArea = All;
                 CaptionML = ENU = 'Insert/Update Tables';
                 Promoted = true;
                 PromotedIsBig = true;
@@ -72,7 +62,6 @@ page 50000 "Record Deletion"
             }
             action(SuggestsRecords)
             {
-                ApplicationArea = All;
                 CaptionML = ENU = 'Suggest Records to Delete';
                 Promoted = true;
                 PromotedIsBig = true;
@@ -87,7 +76,6 @@ page 50000 "Record Deletion"
             }
             action(SuggestsUnlicensedPartnerOrCustomRecords)
             {
-                ApplicationArea = All;
                 CaptionML = ENU = 'Suggest Unlicensed Partner or Custom Records to Delete';
                 Promoted = true;
                 PromotedIsBig = true;
@@ -102,7 +90,6 @@ page 50000 "Record Deletion"
             }
             action(ClearRecords)
             {
-                ApplicationArea = All;
                 CaptionML = ENU = 'Clear Records to Delete';
                 Promoted = true;
                 PromotedIsBig = true;
@@ -117,7 +104,6 @@ page 50000 "Record Deletion"
             }
             action(DeleteRecords)
             {
-                ApplicationArea = All;
                 CaptionML = ENU = 'Delete Records (no trigger!)';
                 Promoted = true;
                 PromotedIsBig = true;
@@ -132,7 +118,6 @@ page 50000 "Record Deletion"
             }
             action(DeleteRecordsWithTrigger)
             {
-                ApplicationArea = All;
                 CaptionML = ENU = 'Delete Records (with trigger!)';
                 Promoted = true;
                 PromotedIsBig = true;
@@ -147,7 +132,6 @@ page 50000 "Record Deletion"
             }
             action(CheckTableRelations)
             {
-                ApplicationArea = All;
                 CaptionML = ENU = 'Check Table Relations';
                 Promoted = true;
                 PromotedIsBig = true;
@@ -162,7 +146,6 @@ page 50000 "Record Deletion"
             }
             action(ViewRecords)
             {
-                ApplicationArea = All;
                 CaptionML = ENU = 'View Records';
                 Promoted = true;
                 PromotedIsBig = true;
