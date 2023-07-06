@@ -2,7 +2,7 @@
   "id": "cafd90e7-34f2-4ff9-ae7e-ae1210bc1841",
   "name": "Record-Deletion-Tool",
   "publisher": "Waldemar Brakowski",
-  "version": "1.0.0.0",
+  "version": "1.0.0.1",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -22,6 +22,6 @@
     }
   ],
   "contextSensitiveHelpUrl": "https://Record-Deletion-Tool.com/help/",
-  "runtime": "9.0",
+  "runtime": "11.0",
   "target": "Cloud"
 }
