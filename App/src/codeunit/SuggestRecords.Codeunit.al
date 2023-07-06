@@ -59,7 +59,6 @@ codeunit 50002 "Suggest Records"
         SetSuggestedTable(Database::"Dimension Set Tree Node");
         SetSuggestedTable(Database::"Direct Debit Collection Entry");
         SetSuggestedTable(Database::"Direct Debit Collection");
-        // SetSuggestedTable(Database::"DO Payment Trans. Log Entry");
         SetSuggestedTable(Database::"Document Entry");
         SetSuggestedTable(Database::"Email Item");
         SetSuggestedTable(Database::"Employee Absence");
@@ -137,15 +136,12 @@ codeunit 50002 "Suggest Records"
         SetSuggestedTable(Database::"Item Register");
         SetSuggestedTable(Database::"Item Tracking Comment");
         SetSuggestedTable(Database::"Job Entry No.");
-        // SetSuggestedTable(Database::"Job G/L Account Price");
-        // SetSuggestedTable(Database::"Job Item Price");
         SetSuggestedTable(Database::"Job Journal Line");
         SetSuggestedTable(Database::"Job Ledger Entry");
         SetSuggestedTable(Database::"Job Planning Line Invoice");
         SetSuggestedTable(Database::"Job Planning Line");
         SetSuggestedTable(Database::"Job Queue Log Entry");
         SetSuggestedTable(Database::"Job Register");
-        // SetSuggestedTable(Database::"Job Resource Price");
         SetSuggestedTable(Database::"Job Task Dimension");
         SetSuggestedTable(Database::"Job Task");
         SetSuggestedTable(Database::"Job Task");
@@ -161,7 +157,6 @@ codeunit 50002 "Suggest Records"
         SetSuggestedTable(Database::"Opportunity Entry");
         SetSuggestedTable(Database::"Order Promising Line");
         SetSuggestedTable(Database::"Order Tracking Entry");
-        // SetSuggestedTable(Database::"Overdue Notification Entry");
         SetSuggestedTable(Database::"Payable Vendor Ledger Entry");
         SetSuggestedTable(Database::"Payment Application Proposal");
         SetSuggestedTable(Database::"Payment Export Data");
@@ -358,36 +353,29 @@ codeunit 50002 "Suggest Records"
     var
         LicensePermission: Record "License Permission";
     begin
-        // LicensePermission.Get(LicensePermission."Object Type"::Table, TableID);
         LicensePermission.Get(LicensePermission."Object Type"::TableData, TableID);
-        if (LicensePermission."Read Permission" = LicensePermission."Read Permission"::" ") and
-            (LicensePermission."Insert Permission" = LicensePermission."Insert Permission"::" ") and
-            (LicensePermission."Modify Permission" = LicensePermission."Modify Permission"::" ") and
-            (LicensePermission."Delete Permission" = LicensePermission."Delete Permission"::" ") and
-            (LicensePermission."Execute Permission" = LicensePermission."Execute Permission"::" ")
-        then
-            exit(false)
-        else
-            exit(true);
+
+        case true of
+            LicensePermission."Read Permission" <> LicensePermission."Read Permission"::" ",
+            LicensePermission."Insert Permission" <> LicensePermission."Read Permission"::" ",
+            LicensePermission."Modify Permission" <> LicensePermission."Read Permission"::" ",
+            LicensePermission."Delete Permission" <> LicensePermission."Read Permission"::" ",
+            LicensePermission."Execute Permission" <> LicensePermission."Read Permission"::" ":
+                exit(true);
+        end;
     end;
 
     local procedure IsRecordStandardTable(TableID: Integer): Boolean
     begin
         case true of
-            //5005270 - 5005363
-            // 5005363 = "Phys. Invt. Diff. List Buffer"
-            // (TableID >= Database::"Delivery Reminder Header") and (TableID <= Database::"Phys. Invt. Diff. List Buffer"):
-            (TableID >= 5005270) and (TableID <= 5005363):
+            TableID in [5005270 .. 5005363]:
                 exit(true);
-            //99000750 - 99008535
-            // 99000750 = Workshift
-            (TableID >= 99000750) and (TableID <= 99008535):
+            TableID in [99000750 .. 99008535]:
                 exit(true);
             // Microsoft Localizations
-            (TableID >= 100000) and (TableID <= 999999):
+            TableID in [100000 .. 999999]:
                 exit(true);
         end;
-        exit(false);
     end;
 
     local procedure SetSuggestedTable(TableID: Integer);

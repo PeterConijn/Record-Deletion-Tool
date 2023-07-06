@@ -2,7 +2,7 @@
   "id": "cafd90e7-34f2-4ff9-ae7e-ae1210bc1841",
   "name": "Record-Deletion-Tool",
   "publisher": "Waldemar Brakowski",
-  "version": "1.0.0.1",
+  "version": "22.3.202308.0",
   "brief": "",
   "description": "",
   "privacyStatement": "",
@@ -13,8 +13,8 @@
   "dependencies": [
   ],
   "screenshots": [],
-  "platform": "20.0.0.0",
-  "application": "20.0.0.0",
+  "platform": "22.0.0.0",
+  "application": "22.1.0.0",
   "idRanges": [
     {
       "from": 50000,

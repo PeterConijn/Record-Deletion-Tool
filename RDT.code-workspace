@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "App"			
+		}
+	],
+	"settings": {
+		"git.autofetch": true,
+		"editor.codeLens": true,
+		"al.browser": "Chrome",
+		"al.backgroundCodeAnalysis": "File",
+		"al.codeAnalyzers": [			
+			"${CodeCop}"
+		],
+		"al.enableCodeAnalysis": true,
+		"al.ruleSetPath": "https://dyselintdev9279.blob.core.windows.net/development-rulesets/dysel.ruleset.json"
+	}
+}
